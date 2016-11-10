@@ -35,12 +35,14 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="js/lib/jquery.mobile-1.4.5.min.css">
+    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="js/font-awesome.css">
 
     <title>Validation</title>
 </head>
 
 <body>
+    <!--  LOGIN- -                                            -->
     <div data-role="page" class="container" id="login">
 
         <div data-role="header">
@@ -58,6 +60,7 @@
 
     </div>
     <!-- /page -->
+    <!--  Register - -                                            -->
     <div data-role="page" class="container" id="register">
 
         <div data-role="header">
@@ -68,25 +71,126 @@
 
         <div role="main" class="ui-content" style="padding: 0;">
             <div class="border">
-                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="text-6" id="text-6" value="" placeholder="First Name" data-role="none" class="input-style">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
             </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="lastname" id="ln" value="" placeholder="Last Name" data-role="none" class="input-style">
+            </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="password" data-role="none" class="input-style" name="password" id="password" value="" placeholder="Password" autocomplete="off">
+                <span class="fa fa-window-close fa-6 icon close-icon" aria-hidden="true" style="display:none">
+            </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="password" data-role="none" class="input-style" name="cpassword" id="cpassword" value="" placeholder="Password" autocomplete="off">
+                <span class="fa fa-window-close fa-6 icon close-icon" aria-hidden="true" style="display: none">
+            </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="email" data-role="none" class="input-style" name="email" id="email" value="" placeholder="Email">
+                <span class="fa fa-window-close fa-6 icon close-icon" aria-hidden="true" style="display: none">
+            </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="tel" name="phonenumber" id="phonenumber" value="" placeholder="Phone Number" data-role="none" class="input-style">
+                <span class="fa fa-window-close fa-6 icon close-icon" aria-hidden="true" style="display: none">
+                </div>
 
+            <div class="border" style="border:none">
+              <div class="" style="display:inline">
+                Gender
+              </div>
+              <div class="" style="display:inline-flex">
+
+
+              <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked" data-role="none" style="margin-left: 3em;">
+                     <label for="radio-choice-v-2a" data-role="none" style="margin-left: 1em">Male</label>
+                     <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off" data-role="none" style="margin-left: 3em;">
+                     <label for="radio-choice-v-2b" data-role="none" style="margin-left: 1em">Female</label>
+
+</div>
+
+                </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span>
+                <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> -->
+                <input placeholder="Date" class="input-style" type="text" id="date" data-role="none" style="display:inline">
+
+                <!-- <input type="date" data-role="none" placeholder="Date" class="input-style" style="display:inline"> -->
+                <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
+            </div>
+            <div class="border">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span>
+                <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
+                <!-- <label for="select-custom-1" style="display:inline">Basic:</label> -->
+                <select name="" id="" data-role="none" class="input-style">
+                  <option value="1"></option>
+                  <!-- <option value="1">The 1st Option</option>
+                  <option value="2">The 2nd Option</option>
+                  <option value="3">The 3rd Option</option>
+                  <option value="4">The 4th Option</option> -->
+                 </select>
+
+            </div>
         </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span>
+            <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
+            <select>
 
-        <!-- /content -->
+                <option selected="selected" class="Country">Country Name</option>
+
+                <option value="1">India</option>
+
+                <option value="2">us</option>
+
+            </select>
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span>
+            <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
+            <select data-role="none" name="country" id="country" class="input-style">
+              <option value="" disabled selected style="border:none">Country</option>
+              <option value="c1">England</option>
+              <option value="c2">Russia</option>
+              <option value="c3">USA</option>
+            </select>
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
+        <div class="border">
+            <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+        </div>
 
 
     </div>
 
+    <!-- /content -->
+
+    <!-- <div class="search-wrapper">
+            <form>
+                <input type="text" name="focus" required class="search-box" placeholder="Enter search term" />
+                <button class="close-icon" type="reset"></button>
+        </div> -->
+
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/lib/jquery.min.js"></script> -->
     <script type="text/javascript" src="js/lib/jquery.mobile-1.4.5.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
-/script>
 </body>
 
 </html>

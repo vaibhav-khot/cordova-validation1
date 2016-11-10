@@ -28,6 +28,30 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        $(":password").focus(function(e) {
+            console.log(e); //currentTarget
+            // e.currentTarget.next().show();
+        });
+        $(".close-icon").click(function(e) {
+            $(":password").val('');
+            console.log(e);
+            console.log(this);
+            $(".close-icon").hide();
+            // .css("display", "inline-block");
+        });
+        $("#date").click(function() {
+            console.log("hi");
+        });
+        $("#date").focus(function() {
+            console.log(this);
+            this.type = 'date';
+            console.log(this.type);
+            $("#date").trigger("click");
+
+
+        });
+
+
     },
 
     // Update DOM on a Received Event
@@ -36,4 +60,4 @@ var app = {
     }
 };
 
-app.initialize();
+app.initialize();;
