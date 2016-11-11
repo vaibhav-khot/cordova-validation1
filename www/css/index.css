@@ -66,6 +66,8 @@ sub {
       display: block;
       text-align: right;
       padding-right: 2em;
+      color: #fff;
+    text-shadow: none;
 
 }
 /*.icon1{
