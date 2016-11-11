@@ -62,7 +62,12 @@ input[type="date"]{
   width: 47vw;
 
 }
+sub {
+      display: block;
+      text-align: right;
+      padding-right: 2em;
 
+}
 /*.icon1{
   text-shadow: none;
   color: white;
