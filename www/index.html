@@ -29,7 +29,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://localhost:3000 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: ;"> -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://localhost:3000 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -71,13 +72,13 @@
 
         <div role="main" class="ui-content" style="padding: 0;">
             <div class="border">
-                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="firstname" placeholder="First Name" data-role="none" class="input-style">
             </div>
             <div class="border">
-                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="lastname" id="ln" value="" placeholder="Last Name" data-role="none" class="input-style">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="lastname" id="lastname" placeholder="Last Name" data-role="none" class="input-style">
             </div>
             <div class="border">
-                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="password" data-role="none" class="input-style" name="password" id="password" value="" placeholder="Password" autocomplete="off">
+                <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="" data-role="none" class="input-style" name="password" id="password" value="" placeholder="Password" autocomplete="off">
                 <span class="fa fa-window-close fa-6 icon close-icon" aria-hidden="true" style="display:none">
             </div>
             <div class="border">
@@ -100,7 +101,7 @@
               <div class="" style="display:inline-flex">
 
 
-              <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked" data-role="none" style="margin-left: 3em;">
+              <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on"  data-role="none" style="margin-left: 3em;">
                      <label for="radio-choice-v-2a" data-role="none" style="margin-left: 1em">Male</label>
                      <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off" data-role="none" style="margin-left: 3em;">
                      <label for="radio-choice-v-2b" data-role="none" style="margin-left: 1em">Female</label>
@@ -123,9 +124,9 @@
                 <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
                 <select data-role="none" name="country" id="country" class="input-style">
               <option value="" disabled selected style="border:nonestat">Country</option>
-              <option value="c1">England</option>
+              <!-- <option value="c1">England</option>
               <option value="c2">Russia</option>
-              <option value="c3">USA</option>
+              <option value="c3">USA</option> -->
             </select>
             </div>
             <div class="border">
@@ -133,9 +134,9 @@
                 <!-- <input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style"> -->
                 <select data-role="none" name="state" id="state" class="input-style">
               <option value="" disabled selected style="border:nonestat">State</option>
-              <option value="c1" class="input-style">England</option>
+              <!-- <option value="c1" class="input-style">England</option>
               <option value="c2" class="input-style" >Russia</option>
-              <option value="c3" class="input-style" >USA</option>
+              <option value="c3" class="input-style" >USA</option> -->
             </select>
             </div>
             <div class="border">
@@ -173,7 +174,7 @@
                 <!--</div>-->
             </div>
             <div class="border" style="border:none;">
-                <a href="#" class="ui-btn ui-corner-all">Register</a>
+                <a href="#" class="ui-btn ui-corner-all" id="register1">Register</a>
             </div>
             <!--<div class="border">
                 <span class="fa fa-user fa-6 icon" aria-hidden="true"></span><input type="text" name="firstname" id="fn" value="" placeholder="First Name" data-role="none" class="input-style">

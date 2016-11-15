@@ -31,6 +31,7 @@ var app = {
         $(":password").focus(function(e) {
             console.log(e); //currentTarget
             // e.currentTarget.next().show();
+
         });
         $(".close-icon").click(function(e) {
             $(":password").val('');
@@ -50,6 +51,76 @@ var app = {
 
 
         });
+
+
+        $(document).ready(function () {
+          console.log("click");
+          $.getJSON( "http://localhost:3000/country/", function( data ) {
+            var items = [];
+            $.each( data, function(key,val) {
+              console.log(val);
+              $.each( val, function(key,val) {
+                if($("#country option").length<=4){
+                var options = new Option(val);
+                $("#country").append(options);
+              }
+              });
+            });
+          console.log(items);
+});
+        });
+
+        $("#country").change(function () {
+          console.log($("#country").val());
+          var a = $("#country").val();
+          $.getJSON('http://localhost:3000/country/'+a,function (data) {
+            $.each( data, function(key,val) {
+              console.log(val);
+              $("#state option").not(":first").remove();
+              $.each( val, function(key,val) {
+                //  $("#state").empty();
+                if($("#state option").length<=val.length){
+                var options = new Option(val);
+                $("#state").append(options);
+              }
+})
+
+          })
+        })
+      });
+      $("#state").change(function () {
+        console.log($("#state").val());
+        var a = $("#state").val();
+        $.getJSON('http://localhost:3000/'+a,function (data) {
+          $.each( data, function(key,val) {
+            console.log(val);
+            $("#city option").not(":first").remove();
+            $.each( val, function(key,val) {
+              //  $("#state").empty();
+              if($("#city option").length<=val.length){
+              var options = new Option(val);
+              $("#city").append(options);
+            }
+})
+
+        })
+      })
+    });
+    $("#register1").click(function () {
+      if ($("#firstname").val()=="") {
+        alert("Please Enter First Name");
+        $("#firstname").focus();
+        $("#firstname").closest("border").css( "border", "1px solid yellow" );
+      }
+    })
+
+
+
+
+
+
+
+
 
 
     },
