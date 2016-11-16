@@ -27,12 +27,14 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
+
         this.receivedEvent('deviceready');
         $(":password").focus(function(e) {
             console.log(e); //currentTarget
             // e.currentTarget.next().show();
 
         });
+
         $(".close-icon").click(function(e) {
             $(":password").val('');
             console.log(e);
@@ -40,27 +42,26 @@ var app = {
             $(".close-icon").hide();
             // .css("display", "inline-block");
         });
+
         $("#date").click(function() {
             console.log("hi");
         });
+
         $("#date").focus(function() {
             console.log(this);
             this.type = 'date';
             console.log(this.type);
             $("#date").trigger("click");
+          });
 
-
-        });
-
-
-        $(document).ready(function () {
-          console.log("click");
-          $.getJSON( "http://localhost:3000/country/", function( data ) {
-            var items = [];
-            $.each( data, function(key,val) {
-              console.log(val);
+          var items = [];
+          $(document).ready(function () {
+            console.log("click");
+            $.getJSON( "http://localhost:3000/country/", function( data ) {
+              $.each( data, function(key,val) {
+              console.log("key"+key+"val"+val);
               $.each( val, function(key,val) {
-                if($("#country option").length<=4){
+              if($("#country option").length<=4){
                 var options = new Option(val);
                 $("#country").append(options);
               }
@@ -106,13 +107,7 @@ var app = {
         })
       })
     });
-    $("#register1").click(function () {
-      if ($("#firstname").val()=="") {
-        alert("Please Enter First Name");
-        $("#firstname").focus();
-        $("#firstname").closest("border").css( "border", "1px solid yellow" );
-      }
-    })
+
 
 
 
@@ -125,9 +120,116 @@ var app = {
 
     },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent : function(id) {
         console.log('Received Event: ' + id);
+    },
+
+
+
+    validation : function () {
+      var fn=$("#firstname").val();
+      var ln=$("#lastname").val();
+      var pass=$("#password").val();
+      var cpass=$("#cpassword").val();
+      var email=$("#email").val();
+      var phn=$("#phonenumber").val();
+      var zc=$("#zipcode").val();
+      var ad1=$("#address1").val();
+      var ad2=$("#address2").val();
+var pregex = /^([0-9]){4,4}$/;
+var eregex = /^([0-9]){4,4}$/;
+var phregex = /^([0-9]){10,10}$/;
+var zpregex = /^([0-9]){6,6}$/;
+
+
+      if(fn!="" || ln!="" || pass!="" || cpass!="" || email!="" || phn!="" || zc!="" || ad1!="" || ad2!="")
+      {
+          $("#firstname").closest(".border").css( "border"," 1px solid white");
+          $("#lastname").closest(".border").css( "border"," 1px solid white");
+          $("#password").closest(".border").css( "border"," 1px solid white");
+          $("#cpassword").closest(".border").css( "border"," 1px solid white");
+          $("#email").closest(".border").css( "border"," 1px solid white");
+          $("#phonenumber").closest(".border").css( "border"," 1px solid white");
+          $("#male").closest(".border").css( "border","none")||
+          $("#female").closest(".border").css( "border","none");
+          $("#zipcode").closest(".border").css( "border"," 1px solid white");
+          $("#address1").closest(".border").css( "border"," 1px solid white");
+          $("#address2").closest(".border").css( "border"," 1px solid white");
+
+          if (fn=="") {
+            alert("Please Enter First Name !");
+            $('#firstname').focus();
+            $("#firstname").closest(".border").css( "border"," 2px solid yellow");
+          } else if (ln=="") {
+            alert("Please Enter Last Name !");
+            $('#lastname').focus();
+            $("#lastname").closest(".border").css( "border"," 2px solid yellow");
+          } else if (pass=="") {
+          alert("Password Cant Be Empty !");
+          $('#password').focus();
+          $("#password").closest(".border").css( "border"," 2px solid yellow");
+          $("#cpassword").closest(".border").css( "border"," 2px solid yellow");
+        }  else if (!pass.match(pregex)) {
+          alert ("Password Should Be 4 Digit Numbers !");
+          $('#password').focus();
+          $("#password").closest(".border").css( "border"," 2px solid yellow");
+          $("#cpassword").closest(".border").css( "border"," 2px solid yellow");
+        } else if (!(pass===cpass)) {
+        alert ("Password Not Match !");
+        $('#password').focus();
+        $("#password").closest(".border").css( "border"," 2px solid yellow");
+        $("#cpassword").closest(".border").css( "border"," 2px solid yellow");
+      } else if (email=="") {
+            alert("Email Cant Be Empty !");
+            $('#email').focus();
+            $("#email").closest(".border").css( "border"," 2px solid yellow");
+          }  else if (!email.match(eregex)) {
+            alert ("Please Fill Valid Email eg vaibhav.khot@gmail.com Special Symbols ._- only allowed !");
+            $('#email').focus();
+            $("#email").closest(".border").css( "border"," 2px solid yellow");
+            } else if (phn=="") {
+              alert("Please Enter Phone Number !");
+              $('#phonenumber').focus();
+              $("#phonenumber").closest(".border").css( "border"," 2px solid yellow");
+            }  else if (!phn.match(phregex)) {
+              alert ("Please Enter 10 Digit Phone Number !");
+              $('#phonenumber').focus();
+              $("#phonenumber").closest(".border").css( "border"," 2px solid yellow");
+            } else if ($('input[name=gender]:checked').length<=0){
+              alert ("Please Select Gender ! ");
+              $("#male").closest(".border").css( "border"," 2px solid yellow")
+            } else if (zc=="") {
+              alert("Please Enter Zip Code !");
+              $('#zipcode').focus();
+              $("#zipcode").closest(".border").css( "border"," 2px solid yellow");
+            }  else if (!zc.match(zpregex)) {
+              alert ("Please Enter 6 Digit Zip Code !");
+              $('#zipcode').focus();
+              $("#zipcode").closest(".border").css( "border"," 2px solid yellow");
+            } else if (!($("#finalcheck").prop("checked"))){
+          alert("Please checked !");
+}
+
+
+
+
+      } else {
+        alert ("Please Fill Details* !");
+        $("#firstname").closest(".border").css( "border"," 2px solid yellow");
+        $("#lastname").closest(".border").css( "border"," 2px solid yellow");
+        $("#password").closest(".border").css( "border"," 2px solid yellow");
+        $("#cpassword").closest(".border").css( "border"," 2px solid yellow");
+        $("#email").closest(".border").css( "border"," 2px solid yellow");
+        $("#phonenumber").closest(".border").css( "border"," 2px solid yellow");
+        $("#zipcode").closest(".border").css( "border"," 2px solid yellow");
+        $("#address1").closest(".border").css( "border"," 2px solid yellow");
+        $("#address2").closest(".border").css( "border"," 2px solid yellow");
+         $("#date").closest(".border").css( "border"," 2px solid yellow");
+         $("#country").closest(".border").css( "border"," 2px solid yellow");
+         $("#state").closest(".border").css( "border"," 2px solid yellow");
+         $("#city").closest(".border").css( "border"," 2px solid yellow");
+        //
+      }
     }
 };
 
